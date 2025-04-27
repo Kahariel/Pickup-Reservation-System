@@ -1,0 +1,6 @@
+<?php
+require_once 'config.php';
+$sql = "SELECT reservations.id, reservations.pickup_date, reservations.status_id, users.name AS customer_name FROM reservations 
+        JOIN users ON reservations.user_id = users.id";
+$reservations = $conn->query($sql);
+?>
