@@ -54,8 +54,8 @@
                             @include_once 'api/get_items.php';
                             foreach ($products as $product) {
                                 echo "
-                                        <div class='carousel-item' data-item-name='" . $product['name'] . "' data-item-img='http://localhost/Pickup Reservation System/" . substr($product['img_path'], 2) . "'>
-                                            <img src='http://localhost/Pickup Reservation System/" . substr($product['img_path'], 2) . "' style='height: 100px;' />
+                                        <div class='carousel-item' data-item-name='" . $product['name'] . "' data-item-id='" . $product['id'] . "' data-item-img='http://localhost/Pickup-Reservation-System/" . substr($product['img_path'], 2) . "'>
+                                            <img src='http://localhost/Pickup-Reservation-System/" . substr($product['img_path'], 2) . "' style='height: 100px;' />
                                             <h4>" . ucfirst($product['name']) . "</h4>
                                         </div>
                                     ";

@@ -32,7 +32,8 @@ function initializeReservationSystem() {
             item.classList.add("selected");
             selectedItem = {
                 name: item.getAttribute("data-item-name"),
-                img: item.getAttribute("data-item-img")
+                img: item.getAttribute("data-item-img"),
+                id: item.getAttribute("data-item-id")
             };
         });
     });
@@ -85,11 +86,7 @@ function initializeReservationSystem() {
             body: formData,
         }).then(response => response.json())
         .then(data => {
-            if (data.success) {
-                alert("Reservation cancelled successfully!");
-            } else {
-                alert("Failed to cancel reservation: " + data.error);
-            }
+            console.log(data);
         });
 
         alert(`Reservation Successful! Tracking ID: ${trackingID}`);
@@ -251,6 +248,7 @@ function setupItemPopups() {
         item.addEventListener("click", () => {
             const itemName = item.getAttribute("data-item-name");
             const itemImg = item.getAttribute("data-item-img");
+            const itemId = item.getAttribute("data-item-id");
 
             const popup = document.createElement("div");
             popup.className = "popup-overlay";
@@ -274,7 +272,7 @@ function setupItemPopups() {
             popup.querySelector(".add-item-btn").onclick = () => {
                 const qty = parseInt(popup.querySelector("#qty").value);
                 if (!qty || qty <= 0) return alert("Please enter a valid quantity.");
-                window.selectedItems.push({ name: itemName, quantity: qty });
+                window.selectedItems.push({ name: itemName, quantity: qty, id: itemId });
                 popup.remove();
             };
         });

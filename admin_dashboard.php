@@ -92,7 +92,7 @@
                                     <td>" . ucfirst($product['name']) . "</td>
                                     <td>" . $product['price'] . "</td>
                                     <td>" . $product['quantity'] . "</td>
-                                    <td><img src='http://localhost/Pickup Reservation System/" . substr($product['img_path'], 2) . "' height='100'></td>
+                                    <td><img src='http://localhost/Pickup-Reservation-System/" . substr($product['img_path'], 2) . "' height='100'></td>
                                     <td>
                                         <button class='cancel-btn' onclick='deleteProduct(" . $product['id'] . ")'>Delete</button>
                                     </td>
