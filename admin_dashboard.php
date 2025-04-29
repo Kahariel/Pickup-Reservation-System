@@ -27,9 +27,10 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Order ID</th>
+                        <th>Tracking ID</th>
                         <th>Customer Name</th>
                         <th>Pickup Date</th>
+                        <th>Pickup Time</th>
                         <th>Status</th>
                         <th>Actions</th>
                     </tr>
@@ -40,9 +41,10 @@
                         foreach ($reservations as $reservation) {
                             echo "
                                 <tr>
-                                    <td>" . $reservation['id'] . "</td>
+                                    <td>" . $reservation['tracking_id'] . "</td>
                                     <td>" . $reservation['customer_name'] . "</td>                                              
-                                    <td>" . $reservation['pickup_date'] . "</td>
+                                    <td>" . $reservation['pickup_date'] . "</td>                                              
+                                    <td>" . date('h:i:s', strtotime($reservation['pickup_time'])) . "</td>
                                     <td>" . $reservation['status_id'] . "</td>
                                     " . ($reservation['status_id'] == 'Pending' ? "
                                     <td>

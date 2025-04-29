@@ -14,8 +14,8 @@
         <div class="logo">A&A Hardware</div>
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="reserve.html" class="active">Reserve</a></li>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="reserve.php" class="active">Reserve</a></li>
                 <li><a href="contacts.html">Contact</a></li>
             </ul>
         </nav>

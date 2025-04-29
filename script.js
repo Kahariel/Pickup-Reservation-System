@@ -210,7 +210,7 @@ function addTrackOrderButton() {
     const btn = document.createElement("button");
     btn.className = "track-order-btn";
     btn.innerText = "Track Order";
-    btn.onclick = () => window.location.href = "track_order.html";
+    btn.onclick = () => window.location.href = "track_order.php";
     header.prepend(btn);
 }
 
