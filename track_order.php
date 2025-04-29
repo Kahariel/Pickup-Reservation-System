@@ -41,45 +41,35 @@
     .then(data => {
         // Your default orders
         const orders = {
-            "AA-966558": {
-                name: "Edelyn",
-                status: "Processing",
-                dateReserve: "April 10,2025"
-            },
-            "ORD-789012": {
-                name: "Ace Justine",
-                status: "Shipped",
-                dateReserve: "April 11,2025"
-            },
-            "ORD-345678": {
-                name: "Mohamar",
-                status: "Delivered",
-                dateReserve: "April 12,2025"
-            }
         };
 
-        // Update orders with data from PHP
+        // Check if data is an array (multiple rows) and append
         data.forEach(element => {
-            console.log(element); // For debugging: check the structure of the data
-            orders[element.tracking_id] = {
+            if (!orders[element.tracking_id]) {
+                orders[element.tracking_id] = [];
+            }
+            orders[element.tracking_id].push({
                 name: element.customer_name,
                 status: element.status_id,
                 dateReserve: element.pickup_date,
-                timePickup: element.pickup_time // Assuming you want to show pickup time as well
-            };
+                timePickup: element.pickup_time,
+                productName: element.product_name
+            });
         });
 
-        // NOW you can safely check and display
-        if (orders[trackingID]) {
-            const order = orders[trackingID];
-            orderStatusDiv.innerHTML = `
+        // Display orders for the tracking ID
+        if (orders[trackingID] && orders[trackingID].length > 0) {
+            const orderDetailsHTML = orders[trackingID].map(order => `
                 <div class="order-details">
                     <p><strong>Name:</strong> ${order.name}</p>
                     <p><strong>Status:</strong> ${order.status}</p>
                     <p><strong>Date Reserved:</strong> ${order.dateReserve}</p>
-                    <p><strong>Date Reserved:</strong> ${order.timePickup}</p>
+                    <p><strong>Pickup Time:</strong> ${order.timePickup}</p>
+                    <p><strong>Pickup Time:</strong> ${order.productName}</p>
                 </div>
-            `;
+            `).join('');
+
+            orderStatusDiv.innerHTML = orderDetailsHTML;
         } else {
             orderStatusDiv.innerHTML = "<p class='error'>Tracking ID not found. Please check and try again.</p>";
         }

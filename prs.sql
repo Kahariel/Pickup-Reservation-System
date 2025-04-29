@@ -64,7 +64,7 @@ CREATE TABLE `reservations` (
   CONSTRAINT `reservations_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`),
   CONSTRAINT `reservations_ibfk_3` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
   CONSTRAINT `reservations_ibfk_4` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -73,7 +73,7 @@ CREATE TABLE `reservations` (
 
 LOCK TABLES `reservations` WRITE;
 /*!40000 ALTER TABLE `reservations` DISABLE KEYS */;
-INSERT INTO `reservations` VALUES (8,5,6,'2025-04-28','21:43:00','Pending','AA-311756'),(9,5,7,'2025-04-28','21:43:00','Confirmed','AA-311756'),(10,5,8,'2025-04-28','21:43:00','Pending','AA-311756'),(11,6,6,'2025-04-29','22:00:00','Pending','AA-606732'),(12,6,7,'2025-04-29','22:00:00','Pending','AA-606732'),(13,6,8,'2025-04-29','22:00:00','Pending','AA-606732');
+INSERT INTO `reservations` VALUES (16,8,6,'2025-04-29','12:05:00','Confirmed','AA-323162'),(17,8,7,'2025-04-29','12:05:00','Confirmed','AA-323162'),(18,8,8,'2025-04-29','12:05:00','Confirmed','AA-323162');
 /*!40000 ALTER TABLE `reservations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -90,7 +90,7 @@ CREATE TABLE `users` (
   `email` varchar(255) NOT NULL,
   `phone` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -99,7 +99,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (5,'Ace Justine Angeles','','09123456789'),(6,'Karl Daven Talib','','09123456789');
+INSERT INTO `users` VALUES (8,'Ace Justine Angeles','','09123456789');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -112,4 +112,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-04-29  9:06:20
+-- Dump completed on 2025-04-29 12:16:38
